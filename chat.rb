@@ -9,9 +9,13 @@ user = Array.new()
 enable :sessions
 set :session_secret, '*&(^#234a)'
 
-get('/') { 
-  erb :login 
-}
+get do '/' 
+  if !session[:name]
+    erb :login
+  else
+    erb :index
+  end 
+end
 
 post '/' do
   if(user.include?(params[:username]))

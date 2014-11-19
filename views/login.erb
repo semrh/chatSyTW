@@ -12,7 +12,6 @@
     <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link rel="icon" href="../../favicon.ico">
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
@@ -25,23 +24,23 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h4 class="brand-heading">Entra en el chat</h4>
-                           <label for="inputEmail" class="sr-only">Nombre de usuario</label>
+                        <form class="form-signin" role="form">
+                           <label for="text" class="sr-only">Nombre de usuario</label>
                               <input type="text" id="username" class="form-control" placeholder="Nombre de usuario" required autofocus>
                            </label>
                     <br><br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
                     <br><br>
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <div id="map"></div>
-    <footer>
-        <div class="container text-center">
-            <p>Copyright Sem Ramos Herrera y Rocío Rodríguez Morín - Chat SyTW 2014</p>
-        </div>
-    </footer>
+    <div class="container text-center">
+     <p>Copyright Sem Ramos Herrera y Rocío Rodríguez Morín - Chat SyTW 2014</p>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>

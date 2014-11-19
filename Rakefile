@@ -2,7 +2,7 @@ task :default => :server
 
 desc "run the chat server"
 task :server do
-  sh "bundle exec ruby chat.rb"
+  sh "rackup"
 end
 
 desc "make a non Ajax request via curl"

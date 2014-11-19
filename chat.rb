@@ -3,13 +3,23 @@ require 'sinatra/reloader' if development?
 #set :port, 3000
 #set :environment, :production
 
-chat = ['welcome..']
+chat = ['Bienvenid@ al chat']
 
-get('/') { erb :index }
+enable :sessions
+set :session_secret, '*&(^#234a)'
+
+get('/') { 
+  erb :login 
+}
+
+post '/' do
+  session[:name] = params[username]
+  erb :index
+end
 
 get '/send' do
   return [404, {}, "Not an ajax request"] unless request.xhr?
-  chat << "#{request.ip} : #{params['text']}"
+  chat << "#{session[:name]} : #{params['text']}"
   nil
 end
 

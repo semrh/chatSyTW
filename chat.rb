@@ -66,3 +66,7 @@ get '/user' do
     </div>
   HTML
 end
+
+get '/chat' do
+  erb :chat
+end

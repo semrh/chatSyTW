@@ -4,6 +4,7 @@ require 'sinatra/reloader' if development?
 #set :environment, :production
 
 chat = ['Bienvenid@ al chat']
+user = Array.new()
 
 enable :sessions
 set :session_secret, '*&(^#234a)'
@@ -13,8 +14,15 @@ get('/') {
 }
 
 post '/' do
-  session[:name] = params[username]
-  erb :index
+  if(user.include?(params[:username]))
+    redirect '/'
+  else
+    name = params[:username]
+    session[:name] = name
+    user << name
+    puts user
+    erb :index
+  end
 end
 
 get '/send' do

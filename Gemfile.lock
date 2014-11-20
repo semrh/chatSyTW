@@ -27,7 +27,11 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rubyzip (1.1.6)
+<<<<<<< HEAD
     selenium-webdriver (2.44.0)
+=======
+    selenium-webdriver (2.43.0)
+>>>>>>> 387265838657e9c88d7cc0b63cfd55ac1ef2bc92
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)

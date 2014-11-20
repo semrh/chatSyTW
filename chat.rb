@@ -59,10 +59,6 @@ get '/update' do
   HTML
 end
 
-post '/chat' do
-  erb :chat
-end
-
 get '/user' do
   return [404, {}, "Not an ajax request"] unless request.xhr?
   @user = user

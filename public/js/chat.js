@@ -7,6 +7,11 @@ $('#text').keypress(
   }
 );
 
+function send(){
+  $.get('/send',{text:$('#text').val()});
+  $('#text').val('');
+}
+
 (function() {
   var last = 0;
   var prev_last = 0;

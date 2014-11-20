@@ -70,3 +70,24 @@ end
 get '/chat' do
   erb :chat
 end
+
+get '/chat/update' do
+  return [404, {}, "Not an ajax request"] unless request.xhr?
+  @updates = chat[params['last'].to_i..-1] || []
+  @last = chat.size
+  erb <<-'HTML', :layout => false
+    <% @updates.each do |phrase| %>
+     <ul class="chat">
+        <div class="chat-body clearfix">
+           <div class="header">
+              <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+           </div>
+           <p>
+           <%= phrase %> <br />
+            </p>
+          </div>
+   </ul>
+ <% end %>
+ <span id="last" data-last="<%= @last %>"></span>
+ HTML
+end

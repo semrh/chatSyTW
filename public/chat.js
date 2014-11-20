@@ -9,12 +9,16 @@ $('#text').keypress(
 
 (function() {
   var last = 0;
+  var prev_last = 0;
   setInterval(
     function(){
       $.get('/chat/update',{last:last},
         function(response){
           last = $($.parseHTML(response)).filter("#last").data('last');
-          $('#chat').append(response);
+          if(last != prev_last){
+            prev_last = last;
+            $('#chat').append(response);
+          }
         }
       );
     },

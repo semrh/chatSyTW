@@ -9,7 +9,7 @@ user = Array.new()
 enable :sessions
 set :session_secret, '*&(^#234a)'
 
-get do '/' 
+get '/' do 
   if !session[:name]
     erb :login
   else

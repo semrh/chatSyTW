@@ -17,6 +17,10 @@ get '/' do
   end 
 end
 
+get '/reset' do
+  chat = ['Bienvenid@ de nuevo..']
+end
+
 post '/' do
   if(user.include?(params[:username]))
     redirect '/'
@@ -79,9 +83,6 @@ get '/chat/update' do
     <% @updates.each do |phrase| %>
      <ul class="chat">
         <div class="chat-body clearfix">
-           <div class="header">
-              <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-           </div>
            <p>
            <%= phrase %> <br />
             </p>

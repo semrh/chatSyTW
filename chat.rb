@@ -3,11 +3,11 @@ require 'sinatra/reloader' if development?
 #set :port, 3000
 #set :environment, :production
 
-chat = ['Bienvenid@ al chat']
-user = Array.new()
-
 enable :sessions
 set :session_secret, '*&(^#234a)'
+
+chat = ['Bienvenid@ al chat']
+user = Array.new()
 
 get '/' do 
   if !session[:name]
@@ -41,7 +41,7 @@ end
 
 get '/send' do
   return [404, {}, "Not an ajax request"] unless request.xhr?
-  chat << "#{session[:name]} : #{params['text']}"
+  chat << "#{session[:name]}[#{t.strftime("%d/%m/%Y %H:%M:%S")}]: #{params['text']}"
   nil
 end
 
@@ -54,7 +54,6 @@ get '/update' do
       <% @updates.each do |phrase| %>
         <%= phrase %> <br />
       <% end %>
-      
       <span data-last="<%= @last %>"></span>
   HTML
 end

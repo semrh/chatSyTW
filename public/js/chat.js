@@ -7,23 +7,20 @@ $('#text').keypress(
   }
 );
 
-function send(){
-  $.get('/send',{text:$('#text').val()});
-  $('#text').val('');
+$('#enviar').click
+  function (){
+    $.get('/send',{text:$('#text').val()});
+    $('#text').val('');
 }
 
 (function() {
   var last = 0;
-  var prev_last = 0;
   setInterval(
     function(){
-      $.get('/chat/update',{last:last},
+      $.get('/update',{last:last},
         function(response){
-          last = $($.parseHTML(response)).filter("#last").data('last');
-          if(last != prev_last){
-            prev_last = last;
+          last = $('<p>').html(response).find('span').data('last');
             $('#chat').append(response);
-          }
         }
       );
     },

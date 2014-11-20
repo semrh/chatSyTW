@@ -4,7 +4,7 @@ gem 'thin'
 
 gem 'sinatra'
 
-group :development, :test do
+group :test do
    gem 'rack-test'
    gem 'rake'
    gem 'minitest'
@@ -12,6 +12,9 @@ group :development, :test do
    gem 'selenium-webdriver'
    gem 'coveralls', require: false
    gem 'rspec'
-   gem 'sinatra-contrib'
    gem 'capybara'
+end
+
+group :development do
+   gem 'sinatra-contrib'
 end

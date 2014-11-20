@@ -63,13 +63,23 @@ get '/user' do
   return [404, {}, "Not an ajax request"] unless request.xhr?
   @user = user
   erb <<-'HTML', :layout => false
-    <div id="user">
-     <% @user.each do |phrase| %>
-       <%= phrase %> <br />
-     <% end %>
-    </div>
+      <% @user.each do |phrase| %>
+        <%= phrase %> <br />
+      <% end %>
   HTML
 end
+
+#get '/user' do
+  #return [404, {}, "Not an ajax request"] unless request.xhr?
+  #@user = user
+  #erb <<-'HTML', :layout => false
+    #<div id="user">
+     #<% @user.each do |phrase| %>
+       #<%= phrase %> <br />
+     #<% end %>
+    #</div>
+  #HTML
+#end
 
 get '/chat' do
   erb :chat

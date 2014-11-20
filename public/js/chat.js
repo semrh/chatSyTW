@@ -13,7 +13,7 @@ $('#text').keypress(
     function(){
       $.get('/chat/update',{last:last},
         function(response){
-          last = $($.parseHTML(response))..filter("#last").data('last');
+          last = $($.parseHTML(response)).filter("#last").data('last');
           $('#chat').append(response);
         }
       );

@@ -32,7 +32,7 @@
 							<% if session[:alias] == nil %>
 								<form class='form-inline' action='/registro' method='post' role='form'>
 									<div class="form-group">
-										<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Introduzca su alias" autofocus>
+										<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Introduzca su nickname" autofocus>
 										<button id ="registro" type="submit" class="button btn btn-lg btn-primary btn-sm">Enviar</button>
 									</div>
 								</form>
@@ -49,13 +49,13 @@
 				<% if session[:error]%>
 					<div class="alert alert-danger alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
-						<strong>¡Error Nombre ocupado, introduzca otro!</strong>
+						<strong>Ya hay un usuario con ese nombre</strong>
 					</div>
 				<% end %>
 				<div class="col-xs-12 col-md-8">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							Chat grupal
+							Sala de chat
 						</div>
 						<div class="panel-body">
 							<ul class="chat">
@@ -76,7 +76,7 @@
 			</div> 
 			<div class="col-md-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">Usuarios del chat</div>
+					<div class="panel-heading">Usuarios</div>
 						<div class="panel-body">
 							<ul class="media-list">
 								<% if session[:alias] != nil %>

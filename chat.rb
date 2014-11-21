@@ -3,28 +3,20 @@ require 'sinatra/reloader' if development?
 #set :port, 3000
 #set :environment, :production
 
-set :server, 'thin' 
-
 enable :sessions
 set :session_secret, '*&(^#234a)'
 
 chat = ['Bienvenid@ al chat']
-user = Array.new()
+@usuarios = []
 
 get '/' do 
     erb :login
 end
 
 post '/' do
-  if(user.include?(params[:username]))
-    redirect '/'
-  else
-    name = params[:username]
-    session[:name] = name
-    user << name
-    puts user
-    erb :chat
-  end
+  session[:alias] = params[:username]
+  @usuarios = session[:alias]
+  erb :chat
 end
 
 get '/logout' do
@@ -34,7 +26,7 @@ end
 
 get '/send' do
   return [404, {}, "Not an ajax request"] unless request.xhr?
-  chat << "#{session[:name]}[#{t.strftime("%d/%m/%Y %H:%M:%S")}]: #{params['text']}"
+  chat << "#{session[:alias]}[#{t.strftime("%d/%m/%Y %H:%M:%S")}]: #{params['text']}"
   nil
 end
 

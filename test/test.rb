@@ -15,8 +15,20 @@ def app
 end
 
 describe "Tests" do
-	it "Inicio" do
-	  get '/'
-	  expect(last_response).to be_ok
-   end
+  
+  it "Inicio" do
+    get '/'
+    expect(last_response).to be_ok
+  end
+  
+  it "Enviar" do
+    get '/send'
+    expect(last_response.body).to eq("Not an ajax request")
+  end
+  
+  it "Iniciar sesion" do
+    get '/registro'
+    expect(last_response).to be_ok
+  end
+  
 end

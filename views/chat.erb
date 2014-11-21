@@ -26,15 +26,13 @@
           <div class='box' id='chat'></div>
         </div>
         <div class='panel-footer'>
- <form class="form-horizontal" role="form" action="/send" method="POST">
- <div class="col-md-7 col-sm-6 col-sm-offset-1 col-md-offset-0">
-<input id="text" placeholder="Write then press Enter." autofocus />
- <div class="col-md-5 col-sm-4">
- <button type="submit" id="enviar" class="btn btn-success btn-small">Enviar</button>
- </div>
- </div>
- </form>
-        </div>
+ <div class="input-group">
+ <input id="text" type="text" class="form-control input-sm" placeholder="Escribe tu mensaje aquí..." autofocus/>
+ <span class="input-group-btn">
+ <button class="btn btn-warning btn-sm" id="btn-chat">
+ Enviar</button>
+ </span>
+ </div>        </div>
       </div>
     </div>
     <div class='col-xs-12 col-md-4'>

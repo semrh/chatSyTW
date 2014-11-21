@@ -17,10 +17,6 @@ get '/' do
   end 
 end
 
-get '/reset' do
-  chat = ['Bienvenid@ de nuevo..']
-end
-
 post '/' do
   if(user.include?(params[:username]))
     redirect '/'

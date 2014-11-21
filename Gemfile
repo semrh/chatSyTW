@@ -4,6 +4,7 @@ ruby "2.1.3"
 
 gem 'thin'
 gem 'sinatra'
+gem 'rack-cache'
 
 group :development, :test do
    gem 'rack-test'

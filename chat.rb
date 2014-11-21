@@ -5,6 +5,9 @@ require 'sinatra/reloader' if development?
 
 set :server, 'thin' 
 
+enable :sessions
+set :session_secret, '*&(^#234a)'
+
 chat = ['Bienvenid@ al chat']
 user = Array.new()
 
@@ -25,7 +28,6 @@ post '/' do
 end
 
 get '/logout' do
-  user.delete(session[:name])
   session.clear
   redirect '/'
 end

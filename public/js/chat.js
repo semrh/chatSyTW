@@ -7,20 +7,20 @@ $('#text').keypress(
   }
 );
 
-$('#enviar').click
-  function (){
+$('#btn-chat').click(
+  function(e){
     $.get('/send',{text:$('#text').val()});
     $('#text').val('');
-}
+  }
+);
 
 (function() {
-  var last = 0;
   setInterval(
     function(){
-      $.get('/update',{last:last},
+      $.get('/update/usuarios',{},
         function(response){
-          last = $('<p>').html(response).find('span').data('last');
-            $('#chat').append(response);
+          $('#usuarios1').empty();
+          $('#usuarios1').append(response);
         }
       );
     },

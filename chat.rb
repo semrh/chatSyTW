@@ -1,5 +1,8 @@
 require 'sinatra' 
 require 'sinatra/reloader' if development?
+require 'date'
+require 'kronic'
+
 #set :port, 3000
 #set :environment, :production
 
@@ -38,6 +41,12 @@ post '/registro' do
 end
 
 get '/logout' do
+  usuarios.delete_if { |a| a == session[:alias]}
+  session.clear
+  redirect '/'
+end
+
+get '/borrar' do
   session.clear
   usuarios.clear
   chat.clear
@@ -62,6 +71,28 @@ get '/update' do
       <% end %>
       <span data-last="<%= @last %>"</span>
   HTML
+end
+
+get '/update/usuarios' do
+  return [404, {}, "Not an ajax request"] unless request.xhr?
+  @listaUsuarios = usuarios
+  erb <<-"HTML"
+   <% @listaUsuarios.each do |usuario| %>
+     <li class="media">
+       <div class="media-body">
+         <div class="media">
+           <a class="pull-left" href="#">
+             <h3><%= usuario %> </h3>
+               <small class="text-muted"><%= t = Time.now
+               t.to_s
+               t = t.strftime "%H:%M" + "-->" + Kronic.format(Time.now) %></small>
+         </div>
+       </div>
+     </div>
+   <hr>
+   </li>
+ <% end %>
+ HTML
 end
 
 get '/chat' do

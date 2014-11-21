@@ -3,13 +3,19 @@ require 'sinatra/reloader' if development?
 #set :port, 3000
 #set :environment, :production
 
+set :server, 'thin'
+
 enable :sessions
 set :session_secret, '*&(^#234a)'
 
 chat = ['Bienvenid@ al chat']
-@usuarios = []
+usuarios = Array.new
+@listaUsuarios = []
 
 get '/' do 
+  if @listaUsuarios == nil
+    @listadeUsuarios = usuarios
+  end
     erb :login
 end
 
@@ -19,8 +25,23 @@ post '/' do
   erb :chat
 end
 
+post '/registro' do
+  puts "inside post '/registro/': #{params}"
+  if !usuarios.include?(params[:nombre])
+    session[:alias] = params[:nombre]
+    usuarios.push(session[:alias])
+    session[:error] = false
+  else
+    session[:error] = true
+  end
+  redirect '/'
+end
+
 get '/logout' do
   session.clear
+  usuarios.clear
+  chat.clear
+  @listaUsuarios = usuarios
   redirect '/'
 end
 
@@ -40,16 +61,6 @@ get '/update' do
         <%= phrase %> <br />
       <% end %>
       <span data-last="<%= @last %>"</span>
-  HTML
-end
-
-get '/user' do
-  return [404, {}, "Not an ajax request"] unless request.xhr?
-  @user = user
-  erb <<-'HTML', :layout => false
-      <% @user.each do |phrase| %>
-        <%= phrase %> <br />
-      <% end %>
   HTML
 end
 

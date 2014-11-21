@@ -41,7 +41,23 @@
           <h4>Usuarios Conectados</h4>
         </div>
         <div class='panel-body'>
-          <div id='user'></div>
+<ul class="media-list">
+ <% if session[:alias] != nil %>
+ <% @listaUsuarios.each do |usuario| %>
+ <li class="media">
+ <div class="media-body">
+ <div class="media">
+ <a class="pull-left" href="#">
+ <img class="media-object img-circle" style="max-height:50px;" src="/img/default.png" />
+ </a>
+ <div class="media-body" >
+ <h3><%= usuario %> </h3>
+ <small class="text-muted"><%= t=Time.now %></small>
+ </div>
+ </div>
+ </div>
+ </li>
+<% end %> <%end%>
         </div>
       </div>
     </div>

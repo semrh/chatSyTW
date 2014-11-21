@@ -17,5 +17,10 @@ end
 
 desc "Visit the GitHub repo page"
 task :open do
-  sh "open https://github.com/crguezl/chat-blazee"
+  sh "open https://github.com/semrh/chatSyTW"
+end
+
+desc "Run tests (default)"
+task :tests => :spec do
+   sh "ruby test/test.rb"
 end

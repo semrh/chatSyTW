@@ -5,7 +5,7 @@ ruby "2.1.3"
 gem 'thin'
 gem 'sinatra'
 
-group :test do
+group :development, :test do
    gem 'rack-test'
    gem 'rake'
    gem 'minitest'
@@ -16,6 +16,6 @@ group :test do
    gem 'capybara'
 end
 
-group :development do
+group :production do
    gem 'sinatra-contrib'
 end

@@ -5,6 +5,7 @@
 Realizada por [Sem Ramos Herrera](https://campusvirtual.ull.es/1415/user/view.php?id=2643&course=5678) y [Rocío Rodríguez Morín](https://campusvirtual.ull.es/1415/user/view.php?id=6590&course=5678) 
 
 [![Coverage Status](https://img.shields.io/coveralls/semrh/chatSyTW.svg)](https://coveralls.io/r/semrh/chatSyTW)
+[![Build Status](https://travis-ci.org/semrh/chatSyTW.svg?branch=tests)](https://travis-ci.org/semrh/chatSyTW)
 
 Modifique el chat visto en la sección Un Chat con Ajax y JQuery 41.4 para que:
 

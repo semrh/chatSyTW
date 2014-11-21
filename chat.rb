@@ -47,10 +47,10 @@ get '/update/usuarios' do
     <div class="media-body">
       <div class="media">
         <div class="media-body" >
-          <h3><%= usuario %> </h3>
+          <h5><%= usuario %> </h5>
           <small class="text-muted"><%= t = Time.now
             t.to_s
-            t = t.strftime "%H:%M" + "-->" + Kronic.format(Time.now) %></small>
+            t = t.strftime "%H:%M" %></small>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@ get '/update/usuarios' do
     <% end %>
     HTML
   end
-#http://www.ruby-doc.org/core-2.1.5/Array.html
+
 post '/registro' do
   puts "inside post '/registro/': #{params}"
   if !usuarios.include?(params[:nombre])

@@ -7,6 +7,8 @@ require 'minitest/autorun'
 require 'rack/test'
 require 'selenium-webdriver'
 require 'rubygems'
+require 'coveralls'
+Coveralls.wear!
 
 include Rack::Test::Methods
 
@@ -28,6 +30,11 @@ describe "Tests" do
   
   it "Iniciar sesion" do
     get '/registro'
+    expect(last_response).to be_ok
+  end
+    
+  it "Cerrar sesion" do
+    get '/logout'
     expect(last_response).to be_ok
   end
   

@@ -1,8 +1,7 @@
 language: ruby
-rvm: 2.1.0
+rvm: 2.1.3
 script:
   bundle install --without production
-  ruby test/test.rb
 branches:
   only:
     master

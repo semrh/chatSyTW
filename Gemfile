@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'thin'
+ruby "2.1.3"
 
+gem 'thin'
 gem 'sinatra'
 
 group :test do
